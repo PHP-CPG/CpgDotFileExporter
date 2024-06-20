@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ "$#" -lt 2 ]; then
+    echo "Usage: run_docker.sh <IN_DIR> <OUT_DIR>"
+    exit 1
+fi
+
+IN_DIR=$(realpath $1)
+OUT_DIR=$(realpath $2)
+
+docker run -v $IN_DIR:/in_dir -v $OUT_DIR:/out_dir --rm cpg2dot
